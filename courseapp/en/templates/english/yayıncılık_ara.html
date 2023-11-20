@@ -1,0 +1,58 @@
+{% extends 'english.html' %}
+{% load static %}
+{% block title %}Publishing{% endblock title %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock css_files %}
+    
+{% block js_alani %}  <script src="{% static 'js/mywejegeh.js' %}"></script>{% endblock js_alani %}
+
+{% block orta_alan %}  
+
+
+
+<div class="col-12 col-lg-10  d-lg-block">
+  <div class="row">
+    <div class="col-12 col-lg-8 mt-lg-5 pt-lg-4">
+      <div class="mt-lg-5"></div>
+      <div class="row mt-lg-5 border-top border-1 border-dark">
+
+        <div class="row row-cols-2 row-cols-lg-4 g-0">
+          {% for entry in yayıncılık %}
+          <div class="col">
+            <div class="card h-100 border-0">             
+              <div class="card-body">
+                <a href="{% url 'yayıncılık_sonnn' slug=entry.slug_en %}" onmouseover="changeImage('{{entry.foto_en.url}}')">
+                  <p class="pt-0  " style="line-height: 1.3;">{{entry.baslik_en}}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-4 pt-0">
+      <img class="pt-0 img-fluid" id="dynamicImage" src="{% static 'img/logo/wejegehlogo.png' %}" alt="">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock orta_alan %}
+
+
+
+
+{% block yanmenü %}
+  <a class="d-flex yükseklik3a pt-0 " href="/en/aboutus">ABOUT US</a>
+  <a class="d-flex yükseklik3a" href="/en/program">PROGRAM</a>
+  <a class="d-flex yükseklik3a "  href="/en/projects">PROJECTS</a> 
+  <a class="d-flex yükseklik3a   fw-bold text-dark   " href="/en/publishing">PUBLISHING</a>
+  <a class="d-flex yükseklik3a  " href="/en/home">HOME</a>
+  <a class="d-flex yükseklik3a" href="/en/archive">ARCHIVE</a>
+{% endblock yanmenü %}

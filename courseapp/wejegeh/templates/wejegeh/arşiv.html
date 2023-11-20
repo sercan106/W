@@ -1,0 +1,81 @@
+{% extends 't_wejegeh.html' %}
+{% load static %}
+{% block title %}Arşiv{% endblock title %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock css_files %}
+    
+{% block js_alani %}  <script src="{% static 'js/mywejegeh.js' %}"></script>{% endblock js_alani %}
+
+{% block orta_alan %}  
+<div class="col-12 col-lg-10  container  " id="k">
+
+    <div class="col-12 text-center border-bottom mb-5"><h1 class="fw-bold" >ARŞİV</h1></div>
+
+    <div class="col-12 border-bottom  mb-2 "><h5 class="fw-bold" >Yıl</h5></div>
+    <div class="col-12  ">
+      <div class="row">
+        {% for entry in yıl %}
+        <div class="col-4 col-lg-2 mt-1"><a  href="{% url 'arşiv_detay' kategori='yıl' kategori2=entry.yıl %}">{{entry.yıl}}</a></div>{% endfor %}
+
+      
+
+      </div>
+    </div>
+
+
+
+
+    <div class="col-12 border-bottom mt-5 mb-2"><h5 class="fw-bold">Alan</h5></div>
+
+    <div class="col-12 ">
+        <div class="row">
+
+            {% for entry in alan %}
+              <div class="col-4 col-lg-2 mt-1"><a  href="{% url 'arşiv_detay' kategori='alan' kategori2=entry.alan_tr%}">{{entry.alan_tr}}</a></div>
+            
+            {% endfor %}
+    
+        </div> 
+    </div> 
+
+
+
+
+
+
+
+
+
+    <div class="col-12 border-bottom mt-5 mb-2"><h5 class="fw-bold">Tür</h5></div>
+    <div class="col-12  ">
+          <div class="row">
+
+            {% for entry in tür %}
+            <div class="col-4 col-lg-2 mt-1"><a  href="{% url 'arşiv_detay' kategori='tür' kategori2=entry.tür_tr%}">{{entry.tür_tr}}</a></div>
+            
+            {% endfor %}
+
+          </div>
+    </div>
+
+
+ 
+
+    <div class="col-12 border-bottom mt-5 mb-5 "><a class=' pb-5'  href="{% url 'arşiv_detay' kategori='arşiv seçkisi' kategori2='arşiv seçkisi'%}"><h5 class="fw-bold  text-dark">Arşiv Seçkisi</h5></a></div>
+
+
+</div>
+{% endblock orta_alan %}
+
+
+
+{% block yanmenü %}
+<a class="d-flex yükseklik3a  pt-0 " href="/hakkımızda">HAKKIMIZDA</a>
+<a class="d-flex yükseklik3a " href="/program">PROGRAM</a>
+<a class="d-flex yükseklik3a  "  href="/projeler">PROJELER</a>
+<a class="d-flex yükseklik3a  " href="/yayıncılık">YAYINCILIK</a>
+<a class="d-flex yükseklik3a " href="/ev">EV</a>
+<a class="d-flex yükseklik3a fw-bold text-dark" href="/arşiv">ARŞİV</a>
+{% endblock yanmenü %}

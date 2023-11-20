@@ -1,0 +1,43 @@
+{% extends 'kurdi.html' %}
+{% load static %}
+{% block title %}Derheqêmede{% endblock title %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock css_files %}
+    
+{% block js_alani %}  <script src="{% static 'js/mywejegeh.js'%}"></script>{% endblock js_alani %}
+
+{% block orta_alan %}  
+<div class="col-12 col-lg-10 container container-lg-fluid " id="k">
+
+
+<div class="col-12   mb-5  ">
+    <div class="row ">
+        {% for entry in hakkımızda %}
+        <div class="col-12 p-lg-0"><img class="col-12  img-fluid" src="{{entry.foto.url}}" alt=""></div>{% comment %} datadan alınacak {% endcomment %}
+        <div class="col-4 d-none d-lg-block "></div>
+        <div class="col-12 col-lg-8 ">
+        <div class="col-12 border-bottom mt-4 "><h3>{{entry.baslik_ku|linebreaks|urlize}}</h3></div>
+        <div class="col-12"><p class="  pelg-lg-0 pb-0 " >{{entry.metin_ku|linebreaks|urlize}}</p></div>
+        {% endfor %}
+    </div>        
+</div> 
+
+    
+ 
+
+</div>
+{% endblock orta_alan %}
+
+
+
+
+{% block yanmenü %}
+  <a class="d-flex yükseklik3a   fw-bold text-dark pt-0 " href="/kr/derheqêmede">DER HEQÊ ME DE</a>
+  <a class="d-flex yükseklik3a " href="/kr/program">PROGRAM</a>
+  <a class="d-flex yükseklik3a  "  href="/kr/proje">PROJE</a> 
+  <a class="d-flex yükseklik3a  " href="/kr/weşangerî">WEŞANGERÎ</a>
+  <a class="d-flex yükseklik3a " href="/kr/mal">MAL</a>
+  <a class="d-flex yükseklik3a" href="/kr/arşiv">ARŞÎV</a>
+{% endblock yanmenü %}

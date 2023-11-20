@@ -1,0 +1,34 @@
+{% extends 'english.html' %}
+{% load static %}
+{% block title %}Calendar{% endblock title %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock css_files %}
+    
+{% block js_alani %}  <script src="{% static 'js/mywejegeh.js' %}"></script>{% endblock js_alani %}
+
+{% block orta_alan %}  
+<div class="col-12 col-lg-10  mt-2 mt-lg-1  ">
+    <div class="row me-1">
+        {% for entry in takvim %}
+        <div class="col-12 p-lg-0 border-bottom "><h3 class="">{{entry.baslik_en}}</h3></div>
+        <div class="col-12 col-lg-5 mt-4  ps-1 "><img class="img-fluid " src="{{ entry.foto_en.url }}" alt=""></div>
+        <div class="col-12 col-lg-7 mt-3 p-lg-0 p-1">{{entry.metin_en}}</div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock orta_alan %}
+
+
+
+
+
+{% block yanmenü %}
+<a class="d-flex yükseklik3a pt-0 " href="/en/aboutus">ABOUT US</a>
+<a class="d-flex yükseklik3a" href="/en/program">PROGRAM</a>
+<a class="d-flex yükseklik3a "  href="/en/projects">PROJECTS</a> 
+<a class="d-flex yükseklik3a  " href="/en/publishing">PUBLISHING</a>
+<a class="d-flex yükseklik3a  " href="/en/home">HOME</a>
+<a class="d-flex yükseklik3a" href="/en/archive">ARCHIVE</a>
+{% endblock yanmenü %}

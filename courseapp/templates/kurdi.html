@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,500;1,300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /> 
+    <link rel="icon" type="image/x-icon" href="{% for entry in ayar %}{{entry.favicon.url}}{% endfor %}" />
+    <title>Wêjegeh | {% block title %}{% endblock title %}</title>
+
+
+    {% block css_files %}
+
+    {% endblock %}
+  </head>
+  <body class="{% for entry in ayar %}{{entry.yazi_tipi}}{% endfor %} container-fluid lh-lg">
+
+<div class="container ">
+    <nav class="d-block d-lg-none navbar bg-body-tertiary fixed-top border-bottom border-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand col-lg-3 col-2" href="/kr">        
+          
+          <img class="img-fluid" src="{% for entry in ayar %}{{entry.logo.url}}{% endfor %}" alt="">
+      </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header border-dark border-bottom ">
+            <a href="/kr"><img class="col-3 p-0 offcanvas-title img-fluid" id="offcanvasNavbarLabel" src="{% for entry in ayar %}{{entry.logo.url}}{% endfor %}" alt="" /></a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+
+          <div class="offcanvas-body  pt-0 mt-1 container ">
+           
+            <div class="row ">
+              <div class="col-12 border-bottom border-dark pb-1 p-0">
+                <form class="d-flex ps-0"  method="GET" action="{% url 'search_resultss' %}">
+                  <input class=" form-control  pe-0 border-0" type="text" name="q" placeholder="Lêgerîn..." value="{{ request.GET.q }}">
+                  <input class=" ps-0 border-0 btn text-dark btn-white" type="submit" value="LÊGERÎN">
+                </form>
+              </div>
+
+
+              <div class="col-12 mt-2 pb-2 ">
+                <div class="row border-bottom border-dark  ps-2 pb-1 ">
+                  <a class="col-1 p-0  fw-bold text-dark" href="/kr"><div>kr</div></a>
+                  <a class="col-2  border-dark border-start" href="/en"><div>eng</div></a>
+                  <a class="col-2  border-dark border-start" href="/"><div>tr</div></a>
+                </div>
+              </div>
+
+              
+            </div>
+
+
+           
+            <ul class="navbar-nav justify-content-end text-dark flex-grow-1 pe-3">
+
+              <li class="nav-item">
+                <a class="nav-link active text-dark" aria-current="page" href="/kr/derheqêmede">DER HEQÊ ME DE</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/kr/program">PROGRAM</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    PROJE
+                </a>
+                <ul class="dropdown-menu border-0">
+                  {% for entry in projeanasayfa %}
+                    <li><a class="dropdown-item" href="{% url 'projee' slug=entry.slug_ku %}">{{entry.baslik_ku|title}}</a></li>
+                  {% endfor %}
+                  </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  MAL
+                </a>
+                <ul class="dropdown-menu border-0">
+                  {% for entry in anasayfa %}
+                      {% if entry.name == 'Ev' %}
+                        <li><a class="dropdown-item" href="{% url 'ev_sonn' slug=entry.slug_ku %}">{{entry.baslik_ku|title}}</a></li>
+                      {% endif %}
+                  {% endfor %}
+                  </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    WEŞANGERÎ
+                </a>
+                <ul class="dropdown-menu border-0">
+                  {% for entry in anasayfa %}
+                      {% if entry.name == 'Yayıncılık' %}
+                        <li><a class="dropdown-item" href="{% url 'yayıncılık_sonn' slug=entry.slug_ku %}">{{entry.baslik_ku|title}}</a></li>
+                      {% endif %}
+                  {% endfor %}
+                  </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/kr/arşiv">ARŞÎV</a>
+              </li>
+
+            </ul> 
+             
+
+
+
+          </div>
+        </div>
+      </div>
+    </nav>
+</div>
+
+    <div class="d-none d-lg-block container border-bottom border-1 border-dark "> 
+      <div class="row d-flex justify-content-between pt-2 pb-2 ">
+        <div class="col-2  ps-0 pe-5 pt-3 ">  
+          <a href="/kr">
+          <img class="img-fluid  ps-0 pe-3 " src="{% for entry in ayar %}{{entry.logo.url}}{% endfor %}" alt="" />
+          </a>
+        </div>
+    <div class="col-8 ">
+      <div class="row">
+        <div class="col-12 text-white">x</div>
+
+        <form id="kutu" class=" hidden p-0 m-0" method="GET" action="{% url 'search_resultss' %}">
+        <div class="col-12">
+          <div class="row">
+   
+      <div class="col-1 pe-0 border-0 rounded bg-white"><i id="closeSearchBtn" class="fa-solid fa-xmark fa-xl" style="color: #000000;"></i></div>
+      <div class="col-9 "> <input class="border-0 form-control" type="text" name="q" placeholder="Lêgerîn ..." value="{{ request.GET.q }}"></div>    
+      <div class="col-2"><input class="border-0 border-radius btn text-dark btn-white" type="submit" value="LÊGERÎN"> </div>
+          </div>
+      </div>
+    </form> 
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-2  my-auto">
+          <div class="row  ">
+            <div class="col-7 ">
+              <div class="row">
+                <div class="col-10 ">
+                  <div class="row">
+                    <div class="col-12 border-bottom  bottom d-flex justify-content-between">
+                      <a href="https://youtube.com/@wejegehamed?si=lxGtMtbgi955A38N"><i class="fa-brands fa-youtube" style="color: #000000;"></i></a>
+                      <a href="https://www.instagram.com/wejegeh_amed/?igshid=MzRlODBiNWFlZA=="><i class="fa-brands fa-instagram" style="color: #000000;"></i></a>
+                      <a href="https://twitter.com/wejegehamed">                                 <i class="fa-solid fa-x" style="color: #000000;"></i></a>
+                      <a href="https://www.facebook.com/wejegehamed?mibextid=ZbWKwL">             <i class="fa-brands fa-facebook-f" style="color: #000000;"></i></a>
+                    </div>
+                    <div class="col-12  d-flex justify-content-end">
+                      
+
+<a id="xxx" href=""><i style="color: #000000; cursor: pointer;" class="fa-solid fa-magnifying-glass fa-lg mt-3"></i></a>
+
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            
+            </div>
+            <div class="col-5  text-end">
+              <div class="row  p-0">
+                
+                <a class="box1 p-0 fw-bold text-dark " href="/kr">KURDÎ</a>
+                <a class="box1  p-0" href="/en">ENGLISH</a>
+                <a class="box1 p-0 " href="/">TÜRKÇE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+   
+
+
+
+
+
+
+    <div class="d-none d-lg-block container text-center">
+      <div class="row align-items-center yükseklik2"></div>
+    </div>
+    <!-- ara alan -->
+  
+    <div class="container p-0 ">   
+
+      
+      <div  class="row  yükseklik3">
+        <div class="d-none d-lg-block col-2 align-content-around">
+
+          {% block yanmenü %}      
+
+          {% endblock %}
+          
+          
+        </div>
+        <div class="col-12 d-lg-none  mt-5 mb-md-3  text-white">x</div>
+        
+    {% block  orta_alan %}
+
+    {% endblock %}
+
+      </div>
+    </div>
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    {% block js_alani %}
+
+    {% endblock %}
+  </body>
+</html>
+

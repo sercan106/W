@@ -1,0 +1,277 @@
+{% extends 't_wejegeh.html' %}
+{% load static %}
+{% block title %}Amed{% endblock title %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock css_files %}
+    
+{% block js_alani %}  <script src="{% static 'js/mywejegeh.js' %}"></script>{% endblock js_alani %}
+
+
+{% block orta_alan %}
+  <div class="col-12 col-lg-10   text-center  p-0" >
+    <div id="carouselExampleAutoplaying" class="carousel slide p-0 " data-bs-ride="carousel">
+
+      <div class="carousel-inner ">
+
+        <div class="carousel-item active">
+        <a href="{{ photoss.all.0.redirect_url }}">
+          <img  src="{{ photoss.all.0.resim.url }}" class="img-fluid  d-block w-100" alt="..." />
+        </a>  
+        </div>
+
+        {% for entry in photoss %}
+        {% if not forloop.first %}
+        <div class="carousel-item">
+         
+            <a href="{{ entry.redirect_url }}">
+              
+              <img src="{{entry.resim.url}}" class="img-fluid  d-block w-100" alt="..." />
+            </a>
+        </div>
+        {% endif %}
+        {% endfor %}         
+
+    </div>
+    
+
+
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container mt-5 mb-2">
+    <div class="row">
+      <div class="col-2"></div>
+
+
+
+
+      <div class="col-10 border-bottom mb-2 ps-0 ">
+        <a href="{% url 'takvim' %}">
+            <h3>{% for entry in takvim %}{{entry.baslik_tr}}{% endfor %}</h3>
+         </a>
+      </div>
+    
+    
+      
+        
+   
+    
+    </div>
+  </div>
+
+
+
+  <div class="container  ">
+    <div class="row ">
+      <div class="col-2"></div>
+      <div class="col-12 col-lg-10     ">
+
+      <div class="row">
+
+        
+
+
+
+
+
+
+      {% for entry in takvim_sıralı %}
+        {% if entry.proje_içerik %}
+              <a class="col-12 ps-lg-0 mb-2 text-dark  " style="background-color:#{{entry.takvim_renk.renk_code}};" href="{% url 'proje_etkinlik' kategori=entry.Ust_kategori.slug_tr slug=entry.slug_tr %}">
+                <div>
+                  <div class="row">
+                    <div class=" col-2 col-lg-1 ps-lg-2"><h1 class="display-3 ps-2 pt-2 fw-bold">{{entry.tarih|date:"d"}}</h1></div>
+                    <div class=" col-10 col-lg-7 ps-0"><p class="  ps-2 pt-3">{{entry.baslik_tr}}</p></div>
+                    <div class="d-none d-lg-block  col-0 col-lg-4 position-relative"> <p  class="pe-3 position-absolute bottom-0 end-0 text-end ">{{entry.Ust_kategori}}</p></div>
+                  </div>    
+                </div>
+            </a>
+    
+            {% else %}
+        <a class="col-12 ps-lg-0 mb-2 text-dark " style="background-color:#{{entry.takvim_renk.renk_code}};" href="{% url 'program_etkinlik' kategori=entry.Ust_kategori.slug_tr slug=entry.slug_tr %}">
+            <div>
+              <div class="row">
+                <div class=" col-2 col-lg-1 ps-lg-2"><h1 class="display-3 ps-2 pt-2 fw-bold">{{entry.tarih|date:"d"}}</h1></div>
+                <div class=" col-10 col-lg-7 ps-0"><p class="  ps-2 pt-3">{{entry.baslik_tr}}</p></div>
+                <div class="d-none d-lg-block  col-0 col-lg-4 position-relative"> <p  class="pe-3 position-absolute bottom-0 end-0 text-end ">{{entry.Ust_kategori}}</p></div>
+              </div>    
+            </div>
+        </a>
+        {% endif %}
+
+      {% endfor %}
+
+
+
+  
+
+
+
+
+    
+    
+      </div>
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+  <div class="container mt-5 mb-2 ">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-10 border-bottom mb-2 ps-0 "><h3>Vitrin</h3></div>
+    </div>
+  </div>
+
+
+  <div style="background-color:#{% for entry in ayar %}{{entry.vitrin_arkasi_rengi}}{% endfor %}" class="container text-center" >
+
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-12 col-lg-8 pt-2 pb-2 ps-0 ">
+
+    
+      <div class="row  row-cols-1 row-cols-lg-2 g-4 mb-4">
+    
+        {% for entry in etkinlikler_sirali %} 
+
+        {% if entry.proje_içerik %}
+        <div class="col">
+            <div class="card h-100 mt-3 p-0">
+                <a href="{% url 'proje_etkinlik' kategori=entry.Ust_kategori.slug_tr slug=entry.slug_tr %}">
+                    <img class="border card-img-top img-fluid" src="{{entry.Ustkategori_foto.url}}" alt="">
+                </a>
+                
+                <a class="" href="{% url 'proje_etkinlik' kategori=entry.Ust_kategori.slug_tr slug=entry.slug_tr %}">
+                        <h7 class="card-title p-2">{{entry.baslik_tr}} </h7>
+                </a>
+
+            </div>
+        </div>
+        
+        {% else %}
+
+        <div class="col">
+            <div class="card h-100 mt-3 ">
+                <a href="{% url 'program_etkinlik' kategori=entry.Ust_kategori.slug_tr slug=entry.slug_tr %}">
+                    <img class="border card-img-top img-fluid" src="{{entry.Ustkategori_foto.url}}" alt="">
+                </a>
+            
+                <a href="{% url 'program_etkinlik' kategori=entry.Ust_kategori.slug_tr slug=entry.slug_tr %}">
+                    <h7 class="card-title p-2">{{entry.baslik_tr}}</h7>
+                </a>
+                
+            </div>
+        </div>
+        
+
+
+        
+        {% endif %}
+    {% endfor %}
+
+
+
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+ <div class="col-2"></div>
+ <div class="col-12 col-lg-8"> 
+  <a href="/logo"><div class=" mt-5 mb-4 border-bottom text-dark "><h3>Ortaklar ve İşbirlikleri</h3></div></a>
+ <a href="/logo"><div class="container pb-5 border bg-gri pt-5 text-center"></div></a>
+</div>
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  <div class="container  border-top mt-5">
+    <div class="row align-items-center  mb-5 mt-3">
+      {% for entry in adres %}
+      <div class="col-md-2 text-center p-5 p-md-0"><img class="img-fluid " src="{{entry.foto.url}}" alt=""></div>
+      <div class="col-md-6 ps-md-4 text-center text-md-start">{{entry.adres_tr|linebreaks}}</div>
+      <div class="col-md-4 text-center">
+        <p>{{entry.numara}}</p>
+        <p>{{entry.e_mail}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+{% block yanmenü %}
+<a class="d-flex yükseklik3a  pt-0 " href="/hakkımızda">HAKKIMIZDA</a>
+<a class="d-flex yükseklik3a " href="/program">PROGRAM</a>
+<a class="d-flex yükseklik3a  "  href="/projeler">PROJELER</a>
+<a class="d-flex yükseklik3a  " href="/yayıncılık">YAYINCILIK</a>
+<a class="d-flex yükseklik3a" href="/ev">EV</a>
+<a class="d-flex yükseklik3a " href="/arşiv">ARŞİV</a>
+{% endblock yanmenü %}
+
+
+
+
+
+

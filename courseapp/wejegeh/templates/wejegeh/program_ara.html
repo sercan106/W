@@ -1,0 +1,90 @@
+{% extends 't_wejegeh.html' %}
+{% load static %}
+{% block title %}Program{% endblock title %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock css_files %}
+    
+{% block js_alani %}  <script src="{% static 'js/mywejegeh.js' %}"></script>{% endblock js_alani %}
+
+{% block orta_alan %}  
+<div class="col-12 col-lg-10  " id="k">
+
+<div class="col-12  mb-4">
+    <div class="row">
+<div class="col-12 col-lg-10  text-center "><h3 class="border-bottom">{{program|linebreaks|urlize}}</h3>
+
+    <div class="row row-cols-1 row-cols-lg-3 g-4">
+    
+        {% for entry in altkategori %}       
+        <div class="col ">
+          <div class="card h-100">
+            <a  href="{% url 'program_etkinlik' kategori=program.slug_tr slug=entry.slug_tr %}">
+                <img class="border card-img-top img-fluid" src="{{entry.Ustkategori_foto.url}}" alt="">
+            </a>
+            
+            
+                <a href="{% url 'program_etkinlik' kategori=program.slug_tr slug=entry.slug_tr %}">
+              <h5 class="card-title">{{entry.baslik_tr}}</h5>
+              </a>
+          
+          </div>
+        </div>
+       {% endfor %}
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="d-none d-lg-block col-2 "></div>
+</div>
+
+</div>
+
+</div>
+{% endblock orta_alan %}
+
+
+
+
+{% block yanmenü %}
+<!-- fw-bold text-dark -->
+<a class="d-flex yükseklik3a  pt-0 " href="/hakkımızda">HAKKIMIZDA</a>
+<a class="d-flex yükseklik3a  fw-bold text-dark " href="/program">PROGRAM</a>
+<a class="d-flex yükseklik3a  "  href="/projeler">PROJELER</a>
+<a class="d-flex yükseklik3a  " href="/yayıncılık">YAYINCILIK</a>
+<a class="d-flex yükseklik3a" href="/ev">EV</a>
+<a class="d-flex yükseklik3a " href="/arşiv">ARŞİV</a>
+{% endblock yanmenü %}

@@ -1,0 +1,156 @@
+.yükseklik{
+    height: 110px;
+}
+
+.yükseklik2{
+    height: 48px;
+}
+
+.yükseklik3{
+    height:305px;
+}
+
+
+.yükseklik3a{
+    height:50px;
+    
+}
+
+
+
+.yükseklik4{
+    height:180px;
+}
+
+
+
+
+
+
+
+
+.hyuk{height: 450px;}/* hakkımızda resimler yükseklik */
+
+.eyuk{height: 300px;}/* ev resimler yükseklik */
+.elogoyuk{height: 100px;}/* ev resimler yükseklik */
+
+
+
+.adres{height: 570px;}/* adres yükseklik */
+
+
+
+.bg-gri{
+    background-color: rgb(208, 208, 208);
+
+}
+
+/* .languages{
+    height: 60px;
+}
+*/
+.box1{
+    height: 22px;
+} 
+
+
+/* ________________a etiketleri ve yazı biçimlendirmeleri______________________ */
+
+
+.italic {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    font-style: italic;
+    
+}
+
+.not_italicized { /* light */
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+   
+    
+    
+    /* font-style: italic; */
+}
+
+a {
+    text-decoration: none; /* Alt çizgileri kaldırır */
+    color: rgb(86, 74, 74);
+    font-weight: 500;
+    font-style: normal;
+    
+  }
+  
+a:hover{
+   color: black;
+    font-size: large;
+    font-weight: bold;
+}  
+
+/* ____________________________SON________________________________________ */
+
+
+.pyuk{
+    height: 167px;
+
+}
+
+.pvyuk{          /* program içindeki vitrinindeki yükseklik */
+height: 200px;
+}
+
+.adyuk{          /* anasayfa adres foto */
+    height: 200px;
+    }
+
+
+.pmar{          /* projeler içindeki margin yüksekliği */
+    margin-top: 157px;
+
+    }
+
+
+.proyuk {
+height: 460px;
+}
+
+
+.aligi {
+        display: flex;
+        justify-content: center; /* Yatayda ortalama */
+        align-items: center; /* Dikeyde ortalama */
+        height: 100%; /* Dikeyde ortalama için gereklidir */
+}
+      
+
+
+
+/* _________________________________MENU MOBİL biçimlendirme_______________________________- */
+.navbar {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+
+
+.navbar-toggler {
+    border-color: black;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  
+
+
+  /* RESİMLER hareketleri ALANI VİTRİN BÖLÜMÜNDE */
+  #myImage {
+    transition: transform 0.9s ease-in-out;
+  }
+  
+
+
+  /* ________________arama motoru hidden______________________ */
+  .hidden {
+    display: none;
+}
+
