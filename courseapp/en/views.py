@@ -37,8 +37,8 @@ def indexxx(request):
     takvim_sıralı=sorted(takvim, key=lambda x: x.tarih, reverse=True) #reverse=False ters sıralama yapar
     
     
-    program=Program_Etkinlik.objects.filter(active_anasayfa=True)
-    proje=Proje_Etkinlik.objects.filter(active_anasayfa=True)
+    program=Program_Etkinlik.objects.filter(active_vitrin=True)
+    proje=Proje_Etkinlik.objects.filter(active_vitrin=True)
     etkinlikler = list(program) + list(proje)
     etkinlikler_sirali = sorted(etkinlikler, key=lambda x: x.tarih, reverse=True)
     return render(request, 'english/index.html',{'program': program,

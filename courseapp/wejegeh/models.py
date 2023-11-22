@@ -112,7 +112,7 @@ class Program_Etkinlik(models.Model):
     active_tr=models.BooleanField(blank=True)
     active_ku=models.BooleanField(blank=True)
     active_en=models.BooleanField(blank=True)
-    active_anasayfa=models.BooleanField(blank=True)
+    active_vitrin=models.BooleanField(blank=True)
     active_takvim=models.BooleanField(blank=True)
     arşiv_seçkisi=models.BooleanField(blank=True)
     takvim_renk=models.ForeignKey(Renk, on_delete=models.CASCADE,blank=True, null=True,related_name='program_etkinlikler')
@@ -209,7 +209,7 @@ class Proje_Etkinlik(models.Model):
     active_tr=models.BooleanField(blank=True)
     active_ku=models.BooleanField(blank=True)
     active_en=models.BooleanField(blank=True)
-    active_anasayfa=models.BooleanField(blank=True)
+    active_vitrin=models.BooleanField(blank=True)
     active_takvim=models.BooleanField(blank=True)
     takvim_renk=models.ForeignKey(Renk, on_delete=models.CASCADE,blank=True, null=True,related_name='proje_etkinlikler')
     def __str__(self):
@@ -254,6 +254,7 @@ class Yazi(models.Model):
 
 class Settings(models.Model):
     name = models.CharField(max_length=100,blank=True)
+    vitrin_arkasi_rengi = models.CharField(max_length=100,blank=True)
     favicon=models.ImageField(upload_to='genel/favicon',blank=True)#zorunlu
     logo=models.ImageField(upload_to='genel/logo',blank=True)#zorunlu
     yazi_tipi =  models.ForeignKey(Yazi, on_delete=models.CASCADE)

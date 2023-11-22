@@ -38,8 +38,8 @@ def indexx(request):
     
    
     
-    program=Program_Etkinlik.objects.filter(active_anasayfa=True)
-    proje=Proje_Etkinlik.objects.filter(active_anasayfa=True)
+    program=Program_Etkinlik.objects.filter(active_vitrin=True)
+    proje=Proje_Etkinlik.objects.filter(active_vitrin=True)
     etkinlikler = list(program) + list(proje)
     etkinlikler_sirali = sorted(etkinlikler, key=lambda x: x.tarih, reverse=True)
     return render(request, 'kurdî/index.html',{'program': program,
