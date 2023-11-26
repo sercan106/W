@@ -34,12 +34,12 @@ def index(request):
     program_takvim=Program_Etkinlik.objects.filter(active_takvim=True)
     proje_takvim=Proje_Etkinlik.objects.filter(active_takvim=True)
     takvim=list(proje_takvim) + list(program_takvim)
-    takvim_sıralı=sorted(takvim, key=lambda x: x.tarih, reverse=True)
+    takvim_sıralı=sorted(takvim, key=lambda x: x.tarih, reverse=False)
     
     program=Program_Etkinlik.objects.filter(active_vitrin=True)
     proje=Proje_Etkinlik.objects.filter(active_vitrin=True)
     etkinlikler = list(program) + list(proje)
-    etkinlikler_sirali = sorted(etkinlikler, key=lambda x: x.tarih, reverse=True)
+    etkinlikler_sirali = sorted(etkinlikler, key=lambda x: x.tarih, reverse=False)
     return render(request, 'wejegeh/index.html',{'program': program,
                                                 'proje': proje,
                                                 'etkinlikler_sirali':etkinlikler_sirali, 

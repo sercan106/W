@@ -25,11 +25,10 @@
             </a>
             
             
-            <div class="card-body text-start " style="background-color:#{{program.renk.renk_code}};">
                 <a href="{% url 'program_etkinlikk' kategori=program.slug_ku slug=entry.slug_ku %}">
-              <h5 class="card-title">{{entry.baslik_ku|linebreaks|urlize}} <br>{{entry.yazar_ku|linebreaks|urlize}}</h5>
+              <h5 class="card-title">{{entry.baslik_ku}}</h5>
               </a>
-            </div>
+            
           </div>
         </div>
        {% endfor %}

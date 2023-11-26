@@ -8,20 +8,28 @@
     
 {% block js_alani %}  <script src="{% static 'js/mywejegeh.js' %}"></script>{% endblock js_alani %}
 {% block orta_alan %}  
-<div class="col-12 col-lg-10  " id="k">
+<div class="col-12 col-lg-10 mb-3 " id="k">
 
 
 
-{% for entry in program_anasayfa %}
-<div class="col-12  mb-1">
-    <div class="row">
-    <div class="col-lg-3 col-12  mt-4 "><img class="  img-fluid" src="{{entry.foto_en.url}}" alt=""></div>
-    <div class="col-lg-9 col-12 p-4">
-        <a class="mb-2" href="{% url 'program_detailll' entry.slug_en %}"><h5>{{entry.baslik_en|linebreaks|urlize}}</h5></a>
-        <p>{{entry.aciklama_en|linebreaks|urlize}} </p>
-    </div></div>
-</div>
-{% endfor %}
+  {% for entry in program_anasayfa %}
+  <div class="col-12  mb-3">
+      <div class="row">
+        
+        <div class="col-lg-3 col-12  mt-4 p-0">
+          <a  href="{% url 'program_detailll' entry.slug_en %}">
+              <img class="  img-fluid" src="{{entry.foto_tr.url}}" alt="">
+          </a>
+      </div>
+  
+      <div class="col-lg-9 col-12 ps-2 mt-4">
+          <a class="" href="{% url 'program_detailll' entry.slug_en %}"><h5>{{entry.baslik_en|linebreaks|urlize}}</h5></a>
+          <p>{{entry.aciklama_en|linebreaks|urlize}} </p>
+      </div>
+  
+    </div>
+  </div>
+  {% endfor %}
 
 
 
