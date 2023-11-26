@@ -32,7 +32,7 @@
                     </a>
                     
                     <a class="" href="{% url 'proje_etkinlikk' kategori=entry.Ust_kategori.slug_ku slug=entry.slug_ku %}">
-                            <h7 class="card-title p-2">{{entry.baslik_ku}} </h7>
+                            <h7 class="card-title p-2">{{entry.bölüm_alanı.bölüm_ku}} </h7>
                     </a>
 
                 </div>
@@ -47,7 +47,7 @@
                     </a>
                 
                     <a href="{% url 'program_etkinlikk' kategori=entry.Ust_kategori.slug_ku slug=entry.slug_ku %}">
-                        <h7 class="card-title p-2">{{entry.baslik_ku}}</h7>
+                        <h7 class="card-title p-2">{{entry.bölüm_alanı.bölüm_ku}}</h7>
                     </a>
                     
                 </div>

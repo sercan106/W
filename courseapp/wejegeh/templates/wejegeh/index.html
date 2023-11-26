@@ -175,7 +175,7 @@
       <div class="row  row-cols-1 row-cols-lg-2 g-4 mb-4">
     
         {% for entry in etkinlikler_sirali %} 
-
+        
         {% if entry.proje_içerik %}
         <div class="col">
             <div class="card h-100 mt-3 p-0">
@@ -184,7 +184,7 @@
                 </a>
                 
                 <a class="" href="{% url 'proje_etkinlik' kategori=entry.Ust_kategori.slug_tr slug=entry.slug_tr %}">
-                        <h7 class="card-title p-2">{{entry.baslik_tr}} </h7>
+                        <h7 class="card-title p-2">{{entry.bölüm_alanı.bölüm_tr}} </h7>
                 </a>
 
             </div>
@@ -199,7 +199,7 @@
                 </a>
             
                 <a href="{% url 'program_etkinlik' kategori=entry.Ust_kategori.slug_tr slug=entry.slug_tr %}">
-                    <h7 class="card-title p-2">{{entry.baslik_tr}}</h7>
+                    <h7 class="card-title p-2">{{entry.bölüm_alanı.bölüm_tr}}</h7>
                 </a>
                 
             </div>
@@ -227,7 +227,12 @@
  <div class="col-2"></div>
  <div class="col-12 col-lg-8"> 
   <a href="/logo"><div class=" mt-5 mb-4 border-bottom text-dark "><h3>Ortaklar ve İşbirlikleri</h3></div></a>
- <a href="/logo"><div class="container pb-5 border bg-gri pt-5 text-center"></div></a>
+
+  <a href="/logo">
+  <div class="col-12 ">
+      <img class="img-fluid" src="{% for entry in ayar %}{{entry.isbirlikleri_foto.url}}{% endfor %}" alt="">
+  </div>
+</a>
 </div>
 
 

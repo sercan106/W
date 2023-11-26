@@ -168,7 +168,7 @@
                     </a>
                     
                     <a class="" href="{% url 'proje_etkinlikk' kategori=entry.Ust_kategori.slug_ku slug=entry.slug_ku %}">
-                            <h7 class="card-title p-2">{{entry.baslik_ku}} </h7>
+                            <h7 class="card-title p-2">{{entry.bölüm_alanı.bölüm_ku}} </h7>
                     </a>
 
                 </div>
@@ -183,7 +183,7 @@
                     </a>
                 
                     <a href="{% url 'program_etkinlikk' kategori=entry.Ust_kategori.slug_ku slug=entry.slug_ku %}">
-                        <h7 class="card-title p-2">{{entry.baslik_ku}}</h7>
+                        <h7 class="card-title p-2">{{entry.bölüm_alanı.bölüm_ku}}</h7>
                     </a>
                     
                 </div>
@@ -208,14 +208,17 @@
 
 
 
- <div class="col-2"></div>
- <div class="col-12 col-lg-8"> 
-  <a href={% url 'logoo' %}><div class=" mt-5 mb-4 border-bottom text-dark "><h3>Hevkar û Hevpar</h3></div></a>
- <a href={% url 'logoo' %}><div class="container pb-5 border bg-gri pt-5 text-center"></div></a>
+
+<div class="col-2"></div>
+<div class="col-12 col-lg-8"> 
+ <a href={% url 'logoo' %}><div class=" mt-5 mb-4 border-bottom text-dark "><h3>Hevkar û Hevpar</h3></div></a>
+
+ <a href={% url 'logoo' %}>
+ <div class="col-12 ">
+     <img class="img-fluid" src="{% for entry in ayar %}{{entry.isbirlikleri_foto.url}}{% endfor %}" alt="">
+ </div>
+</a>
 </div>
-
-
-  
 
 
 

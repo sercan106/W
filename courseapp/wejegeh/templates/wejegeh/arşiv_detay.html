@@ -35,7 +35,7 @@
                     </a>
                     
                     <a class="" href="{% url 'proje_etkinlik' kategori=entry.Ust_kategori.slug_tr slug=entry.slug_tr %}">
-                            <h7 class="card-title p-2">{{entry.baslik_tr}} </h7>
+                            <h7 class="card-title p-2">{{entry.bölüm_alanı.bölüm_tr}} </h7>
                     </a>
 
                 </div>
@@ -50,7 +50,7 @@
                     </a>
                 
                     <a href="{% url 'program_etkinlik' kategori=entry.Ust_kategori.slug_tr slug=entry.slug_tr %}">
-                        <h7 class="card-title p-2">{{entry.baslik_tr}}</h7>
+                        <h7 class="card-title p-2">{{entry.bölüm_alanı.bölüm_tr}}</h7>
                     </a>
                     
                 </div>
