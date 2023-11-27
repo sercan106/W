@@ -82,7 +82,8 @@ a {
   }
   
 a:hover{
-   color: black;
+    
+    color: black;
     font-size: large;
     font-weight: bold;
 }  
@@ -154,3 +155,30 @@ height: 460px;
     display: none;
 }
 
+
+
+
+
+
+ /* ________________CARD AYARLARI______________________ */
+.card {
+    position: relative;
+    border: 0;
+    overflow: hidden; /* Resim üzerine geldiğinde card-title'ın animasyonunu daha iyi kontrol etmek için eklenmiştir */
+}
+
+.card-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    background-color: black;
+    font-size:small;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card:hover .card-title {
+    opacity: 1;
+}

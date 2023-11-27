@@ -28,6 +28,15 @@ imageContainers.forEach(function(container) {
 
 
 
+//  document.querySelector('.card').addEventListener('mouseover', function() {
+//      document.querySelector('.card-body').style.opacity = 1;
+//  });
+
+//  document.querySelector('.card').addEventListener('mouseout', function() {
+//      document.querySelector('.card-body').style.opacity = 0;
+//  });
+
+
 
 
 
