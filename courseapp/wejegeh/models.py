@@ -258,7 +258,9 @@ class Settings(models.Model):
     favicon=models.ImageField(upload_to='genel/favicon',blank=True)#zorunlu
     logo=models.ImageField(upload_to='genel/logo',blank=True)#zorunlu
     yazi_tipi =  models.ForeignKey(Yazi, on_delete=models.CASCADE)
-    isbirlikleri_foto=models.ImageField(upload_to='genel/isbirlikleri',blank=True)#zorunlu
+    isbirlikleri_foto_tr=models.ImageField(upload_to='genel/isbirlikleri',blank=True)#zorunlu
+    isbirlikleri_foto_ku=models.ImageField(upload_to='genel/isbirlikleri',blank=True)#zorunlu
+    isbirlikleri_foto_en=models.ImageField(upload_to='genel/isbirlikleri',blank=True)#zorunlu
     def __str__(self):
         return self.name
 

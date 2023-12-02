@@ -20,7 +20,7 @@
 
 
 {% for entry in program.proje_içerik.all %}
-    <div class="col-12 col-lg-3 pt-2  pe-2 mt-4"><img src="{{entry.foto.url}}" class="img-fluid  d-block w-100" alt="..." /></div>
+    <div class="col-12 col-lg-3 pt-2   mt-4"><img src="{{entry.foto.url}}" class="img-fluid  d-block w-100" alt="..." /></div>
     <div class="col-12 col-lg-9  mt-4 ">{{entry.metin_en|linebreaks|urlize}}</div>
 {% endfor %}
 
@@ -82,6 +82,6 @@
   <a class="d-flex yükseklik3a" href="/en/program">PROGRAM</a>
   <a class="d-flex yükseklik3a  fw-bold text-dark   "  href="/en/projects">PROJECTS</a> 
   <a class="d-flex yükseklik3a  " href="/en/publishing">PUBLISHING</a>
-  <a class="d-flex yükseklik3a  " href="/en/home">HOME</a>
+  <a class="d-flex yükseklik3a  " href="/en/home">HOUSE</a>
   <a class="d-flex yükseklik3a" href="/en/archive">ARCHIVE</a>
 {% endblock yanmenü %}
