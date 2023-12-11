@@ -141,29 +141,31 @@ def arşiv_detay(request,kategori,kategori2):
 
 
 
-
 def search_results(request):
     query = request.GET.get('q')
+    etkinlikler_sirali = []  # Varsayılan olarak boş bir liste ile başlat
+
     if query:
-        if query.isdigit() and 1900 <= int(query) <= 2100:  # Eğer query bir yıl ise
-            program=Program_Etkinlik.objects.filter(tarih__year=query)
-            proje=Proje_Etkinlik.objects.filter(tarih__year=query)
-            etkinlikler=list(program) + list(proje)
+        if query.isdigit() and 1900 <= int(query) <= 2100:
+            program = Program_Etkinlik.objects.filter(tarih__year=query)
+            proje = Proje_Etkinlik.objects.filter(tarih__year=query)
+            etkinlikler = list(program) + list(proje)
             etkinlikler_sirali = sorted(etkinlikler, key=lambda x: x.tarih, reverse=True)
-        else:  # Eğer query bir yıl değilse
+        else:
             program = Program_Etkinlik.objects.filter(metin_tr__icontains=query)
-            proje = Proje_Etkinlik.objects.filter(proje_içerik__metin_tr__icontains=query).distinct()#yinelemeyi engelemek için
-            etkinlikler=list(program) + list(proje)
+            proje = Proje_Etkinlik.objects.filter(proje_içerik__metin_tr__icontains=query).distinct()
+            etkinlikler = list(program) + list(proje)
             etkinlikler_sirali = sorted(etkinlikler, key=lambda x: x.tarih, reverse=True)
     else:
         program = Program_Etkinlik.objects.none()
         proje = Proje_Etkinlik.objects.none()
 
-    return render(request, 'wejegeh/search_results.html', {'program': program, 
-                                                           'proje': proje,
-                                                           'etkinlikler_sirali':etkinlikler_sirali,
-                                                           })
-
+    return render(request, 'wejegeh/search_results.html', {
+        'program': program,
+        'proje': proje,
+        'etkinlikler_sirali': etkinlikler_sirali,
+    })
 
 def takvim(request):
-   return render(request, 'wejegeh/takvim.html')
+    return render(request, 'wejegeh/takvim.html')
+

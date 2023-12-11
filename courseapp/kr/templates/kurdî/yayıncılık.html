@@ -1,28 +1,25 @@
 {% extends 'kurdi.html' %}
 {% load static %}
 {% block title %}Weşangerî{% endblock title %}
-{% block css_files %}
-<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-{% endblock css_files %}
-    
-{% block js_alani %}  <script src="{% static 'js/mywejegeh.js' %}"></script>{% endblock js_alani %}
+
 
 {% block orta_alan %}  
 <div class="col-12 col-lg-10  " id="k">
 
-<div class="row">
+  <div class="row">
 
-<div class="col-12 mb-4  "><img class="img-fluid" src="{{yayıncılık.foto.url}}" alt=""></div>
- <div class="d-none d-lg-block col-3 "></div>
-    <div class="col-12 col-lg-9 border-bottom p-lg-0 mb-4 "><h3>{{yayıncılık.baslik_ku|linebreaks|urlize}}</h3> </div>
+    <div class="col-12 mb-4  "><img class="img-fluid " src="{{yayıncılık.foto.url}}" alt=""></div>
+    <div class="d-none d-lg-block col-3 ps-2"></div>
+    
+    <div class="col-12 col-lg-9 container  mb-2 "><h3 class="border-bottom pb-2">{{yayıncılık.baslik_ku}}</h3> </div>
+
+    {% for entry in yayıncılık.içerik.all %}
+        <div class="col-12 col-lg-3 pt-lg-2  mt-0"><img src="{{entry.foto.url}}" class="img-fluid  d-block w-100" alt="..." /></div>
+        <div class="col-12 col-lg-9 pe-0 mt-0 ">{{entry.metin_ku|linebreaks|urlize}}</div>
+    {% endfor %}
 
 
 
-{% for entry in yayıncılık.içerik.all %}
-    <div class="col-12 col-lg-3 pt-2  mt-4"><img src="{{entry.foto.url}}" class="img-fluid  d-block w-100" alt="..." /></div>
-    <div class="col-12 col-lg-9  mt-4 ">{{entry.metin_ku|linebreaks|urlize}}</div>
-{% endfor %}
 
 
 

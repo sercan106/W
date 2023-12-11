@@ -165,6 +165,7 @@ def arşiv_detayy(request,kategori,kategori2):
 
 def search_resultss(request):
     query = request.GET.get('q')
+    etkinlikler_sirali = []  # Varsayılan olarak boş bir liste ile başlat
     if query:
         if query.isdigit() and 1900 <= int(query) <= 2100:  # Eğer query bir yıl ise
             program=Program_Etkinlik.objects.filter(tarih__year=query)

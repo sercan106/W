@@ -334,10 +334,10 @@ class Ev_Yayıncılık(models.Model):
     name = models.CharField(max_length=50, choices=BIRIM_CHOICES)
     tarih=models.DateField(verbose_name="Tarih",blank=True)
     ust_kategori = models.ForeignKey(Anasayfa, on_delete=models.CASCADE)
-    foto=models.ImageField(upload_to='ev_yayıncılık/foto',blank=True)#zorunlu
+    foto=models.ImageField(upload_to='ev_yayıncılık/foto')#zorunlu
     baslik_tr = models.CharField(max_length=100)#zorunlu
-    baslik_ku = models.CharField(max_length=100,blank=True)
-    baslik_en = models.CharField(max_length=100,blank=True)
+    baslik_ku = models.CharField(max_length=100)
+    baslik_en = models.CharField(max_length=100)
     içerik = models.ManyToManyField(Contents,blank=True)
     slides = models.ManyToManyField(Slide,blank=True)
     

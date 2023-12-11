@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /> 
     <link rel="icon" type="image/x-icon" href="{% for entry in ayar %}{{entry.favicon.url}}{% endfor %}" />
     <title>Wêjegeh | {% block title %}{% endblock title %}</title>
-
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     {% block css_files %}
 
     {% endblock %}
   </head>
-  <body class="{% for entry in ayar %}{{entry.yazi_tipi}}{% endfor %} container-fluid lh-lg">
+  <body class="{% for entry in ayar %}{{entry.yazi_tipi}}{% endfor %} container-fluid ">
 
 <div class="container ">
     <nav class="d-block d-lg-none navbar bg-body-tertiary fixed-top border-bottom border-dark">
@@ -31,18 +32,18 @@
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header border-dark border-bottom ">
-            <a href="/en"><img class="col-3 p-0 offcanvas-title img-fluid" id="offcanvasNavbarLabel" src="{% for entry in ayar %}{{entry.logo.url}}{% endfor %}" alt="" /></a>
+            <a href="/en"><img class="col-3 p-0 offcanvas-title " id="offcanvasNavbarLabel" src="{% for entry in ayar %}{{entry.logo.url}}{% endfor %}" alt="" /></a>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
 
 
-          <div class="offcanvas-body  pt-0 mt-1 container ">
+          <div class="offcanvas-body  pt-0 mt-1 container  ">
            
             <div class="row ">
               <div class="col-12 border-bottom border-dark pb-1 p-0">
                 <form class="d-flex ps-0"  method="GET" action="{% url 'search_resultsss' %}">
                   <input class=" form-control  pe-0 border-0" type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}">
-                  <input class=" ps-0 border-0 btn text-dark btn-white" type="submit" value="SEARCH">
+                  <input class=" ps-0 border-0 btn text-dark btn-white " type="submit" value="SEARCH">
                 </form>
               </div>
 
@@ -137,7 +138,7 @@
         <div class="col-12">
           <div class="row">
    
-      <div class="col-1 pe-0 border-0 rounded bg-white"><i id="closeSearchBtn" class="fa-solid fa-xmark fa-xl" style="color: #000000;"></i></div>
+      <div class="col-1 pe-0 border-0 text-center my-auto rounded bg-white"><i id="closeSearchBtn" class="fa-solid fa-xmark fa-xl" style="color: #000000;"></i></div>
       <div class="col-9 "> <input class="border-0 form-control" type="text" name="q" placeholder="Search ..." value="{{ request.GET.q }}"></div>    
       <div class="col-2"><input class="border-0 border-radius btn text-dark btn-white" type="submit" value="SEARCH"> </div>
           </div>
@@ -236,7 +237,7 @@
    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+    <script src="{% static 'js/mywejegeh.js' %}"></script>
     {% block js_alani %}
 
     {% endblock %}

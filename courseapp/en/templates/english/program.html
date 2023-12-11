@@ -1,12 +1,7 @@
 {% extends 'english.html' %}
 {% load static %}
 {% block title %}Program{% endblock title %}
-{% block css_files %}
-<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-{% endblock css_files %}
-    
-{% block js_alani %}  <script src="{% static 'js/mywejegeh.js' %}"></script>{% endblock js_alani %}
+
 {% block orta_alan %}  
 <div class="col-12 col-lg-10 mb-3 " id="k">
 
@@ -22,9 +17,9 @@
           </a>
       </div>
   
-      <div class="col-lg-9 col-12 ps-2 mt-4">
-          <a class="" href="{% url 'program_detailll' entry.slug_en %}"><h5>{{entry.baslik_en|linebreaks|urlize}}</h5></a>
-          <p>{{entry.aciklama_en|linebreaks|urlize}} </p>
+      <div class="col-lg-9 col-12 ps-lg-3 mt-4">
+          <a class="" href="{% url 'program_detailll' entry.slug_en %}"><h5>{{entry.baslik_en}}</h5></a>
+          <div class="mt-0 pt-0 ">{{entry.aciklama_en|linebreaks|urlize}} </div>
       </div>
   
     </div>

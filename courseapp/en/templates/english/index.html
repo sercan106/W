@@ -1,12 +1,6 @@
 {% extends 'english.html' %}
 {% load static %}
 {% block title %}Amed{% endblock title %}
-{% block css_files %}
-<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-{% endblock css_files %}
-    
-{% block js_alani %}  <script src="{% static 'js/mywejegeh.js' %}"></script>{% endblock js_alani %}
 
 
 
@@ -87,7 +81,7 @@
                 <div>
                   <div class="row">
                     <div class=" col-2 col-lg-1 ps-lg-2"><h1 class="display-3 ps-2 pt-2 fw-bold">{{entry.tarih|date:"d"}}</h1></div>
-                    <div class=" col-10 col-lg-7 ps-0"><p class="  ps-2 pt-3">{{entry.baslik_en}}</p></div>
+                    <div class=" col-10 col-lg-7 ps-0"><p class="mir">{{entry.baslik_en}}</p></div>
                     <div class="d-none d-lg-block  col-0 col-lg-4 position-relative"> <p  class="pe-3 position-absolute bottom-0 end-0 text-end ">{{entry.Ust_kategori.baslik_en}}</p></div>
                   </div>    
                 </div>
@@ -98,7 +92,7 @@
             <div>
               <div class="row">
                 <div class=" col-2 col-lg-1 ps-lg-2"><h1 class="display-3 ps-2 pt-2 fw-bold">{{entry.tarih|date:"d"}}</h1></div>
-                <div class=" col-10 col-lg-7 ps-0 "><p class="  ps-2 pt-2">{{entry.baslik_en}}</p></div>
+                <div class=" col-10 col-lg-7 ps-0 "><p class="mir">{{entry.baslik_en}}</p></div>
                 <div class="d-none d-lg-block  col-0 col-lg-4 position-relative"> <p  class="pe-3 position-absolute bottom-0 end-0 text-end ">{{entry.Ust_kategori.baslik_en}}</p></div>
               </div>    
             </div>
@@ -142,7 +136,7 @@
 
   <div class="row">
     <div class="col-2"></div>
-    <div class="col-12 col-lg-8 pt-2 pb-2 ps-0 ">
+    <div class="col-12 col-lg-8 pt-3 pb-2 ps-0 pe-0">
     
       <div class="row  row-cols-1 row-cols-lg-2 g-4 mb-4">
     
@@ -150,7 +144,7 @@
 
         {% if entry.proje_içerik %}
         <div class="col">
-            <div class="card h-100 mt-3 p-0">
+            <div class="card h-100 mt-0 p-0 ">
                 <a href="{% url 'proje_etkinlikkk' kategori=entry.Ust_kategori.slug_en slug=entry.slug_en %}">
                     <img class="border card-img-top img-fluid" src="{{entry.Ustkategori_foto.url}}" alt="">
                 </a>
@@ -165,7 +159,7 @@
         {% else %}
 
         <div class="col">
-            <div class="card h-100 mt-3 ">
+            <div class="card h-100 mt-0 p-0  ">
                 <a href="{% url 'program_etkinlikkk' kategori=entry.Ust_kategori.slug_en slug=entry.slug_en %}">
                     <img class="border card-img-top img-fluid" src="{{entry.Ustkategori_foto.url}}" alt="">
                 </a>

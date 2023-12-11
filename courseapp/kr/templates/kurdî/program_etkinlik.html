@@ -1,12 +1,7 @@
 {% extends 'kurdi.html' %}
 {% load static %}
 {% block title %}Program{% endblock title %}
-{% block css_files %}
-<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-{% endblock css_files %}
-    
-{% block js_alani %}  <script src="{% static 'js/mywejegeh.js' %}"></script>{% endblock js_alani %}
+
 {% block orta_alan %}  
 <div class="col-12 col-lg-10  " id="k">
     <div class="row">
@@ -18,8 +13,8 @@
         
         <div class="col-12 border-bottom">
             
-                <h3>{{program.baslik_ku|linebreaks|urlize}}</h3>
-                <h3 class="fw-light">{{program.yazar_ku|linebreaks|urlize}}</h3>
+                <h3>{{program.baslik_ku}}</h3>
+                <h3 class="fw-light">{{program.yazar_ku}}</h3>
 
                 
             </div>
@@ -28,10 +23,10 @@
     </div>
    
     <div class="d-none d-lg-block col-2 mt-5"></div>
-    <div class="col-12 col-lg-10 mt-4">{{program.metin_ku|linebreaks|urlize}}</div>
+    <div class="col-12 col-lg-10 mt-2">{{program.metin_ku|linebreaks|urlize}}</div>
     <div class="d-none d-lg-block col-2 mt-5"></div>
     <div class="col-12 col-lg-10">
-    <div class="col-12  pb-5 ">
+    <div class="col-12  pb-5  p-1 ">
             <div class="row d-flex justify-content-araund mt-4 ">
 
 
@@ -46,7 +41,7 @@
                             <div class="card-body text-start ps-0">
                                 {% if entry.redirect_url %}
                                     <a href="{{ entry.redirect_url }}">
-                                        <p class="card-title text-end ">nîşan bide</p>
+                                        <h5 class="card-title mt-2 me-2">nîşan bide</h5>
                                     </a>
                                 {% endif %}
                             </div>

@@ -1,24 +1,18 @@
 {% extends 'kurdi.html' %}
 {% load static %}
 {% block title %}Program{% endblock title %}
-{% block css_files %}
-<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-{% endblock css_files %}
-    
-{% block js_alani %}  <script src="{% static 'js/mywejegeh.js' %}"></script>{% endblock js_alani %}
 
 {% block orta_alan %}  
 <div class="col-12 col-lg-10  " id="k">
 
 <div class="col-12  mb-4">
     <div class="row">
-<div class="col-12 col-lg-10  text-center "><h3 class="border-bottom">{{program.baslik_ku|linebreaks|urlize}}</h3>
+<div class="col-12 col-lg-10  text-center "><h3 class="border-bottom">{{program.baslik_ku}}</h3>
 
     <div class="row row-cols-1 row-cols-lg-3 g-4">
     
         {% for entry in altkategori %}       
-        <div class="col ">
+        <div class="col pt-2  ">
           <div class="card h-100">
             <a  href="{% url 'program_etkinlikk' kategori=program.slug_ku slug=entry.slug_ku %}">
                 <img class="border card-img-top img-fluid" src="{{entry.Ustkategori_foto.url}}" alt="">

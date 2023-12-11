@@ -1,24 +1,18 @@
 {% extends 't_wejegeh.html' %}
 {% load static %}
 {% block title %}Hakkımızda{% endblock title %}
-{% block css_files %}
-<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-{% endblock css_files %}
-    
-{% block js_alani %}  <script src="{% static 'js/mywejegeh.js'%}"></script>{% endblock js_alani %}
 
 {% block orta_alan %}  
 <div class="col-12 col-lg-10 container container-lg-fluid " id="k">
 
-
+    
 <div class="col-12   mb-5  ">
     <div class="row ">
         {% for entry in hakkımızda %}
         <div class="col-12 p-lg-0 "><img class="col-12  img-fluid" src="{{entry.foto.url}}" alt=""></div>
         <div class="col-4 d-none d-lg-block "></div>
         <div class="col-12 col-lg-8 ">
-        <div class="col-12 border-bottom mt-4 "><h3>{{entry.baslik_tr|linebreaks|urlize}}</h3></div>
+        <div class="col-12 border-bottom mt-4 "><h3>{{entry.baslik_tr}}</h3></div>
         <div class="col-12"><p class="  pelg-lg-0 pb-0 " >{{entry.metin_tr|linebreaks|urlize}}</p></div>
         {% endfor %}
     </div>        
