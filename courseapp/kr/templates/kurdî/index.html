@@ -203,17 +203,20 @@
 
 
 
+
 <div class="col-2"></div>
 <div class="col-12 col-lg-8"> 
- <a href={% url 'logoo' %}><div class=" mt-5 mb-4 border-bottom text-dark "><h3>HEVKAR Û HEVPAR</h3></div></a>
+ 
+ {% for entry in ayar %}
+ <a href="{% url 'logoo' %}"><div class=" mt-5 mb-4 border-bottom text-dark "><h3>{{entry.isbirlikleri_name_ku}}</h3></div></a>
 
- <a href={% url 'logoo' %}>
+ <a href="{% url 'logoo' %}">
  <div class="col-12 ">
-     <img class="img-fluid" src="{% for entry in ayar %}{{entry.isbirlikleri_foto_ku.url}}{% endfor %}" alt="">
+     <img class="img-fluid" src="{{entry.isbirlikleri_foto_ku.url}}" alt="">
  </div>
+ {% endfor %}
 </a>
 </div>
-
 
 
 

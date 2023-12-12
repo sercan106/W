@@ -12,8 +12,8 @@
     <div class="col-12 col-lg-9 container  mb-2 "><h3 class="border-bottom pb-2">{{yayıncılık.baslik_en}}</h3> </div>
 
     {% for entry in yayıncılık.içerik.all %}
-        <div class="col-12 col-lg-3 pt-lg-2  mt-0"><img src="{{entry.foto.url}}" class="img-fluid  d-block w-100" alt="..." /></div>
-        <div class="col-12 col-lg-9 pe-0 mt-0 ">{{entry.metin_en|linebreaks|urlize}}</div>
+        <div class="col-12 col-lg-3 pt-lg-2 mb-3 mb-lg-0  "><img src="{{entry.foto.url}}" class="img-fluid  d-block w-100" alt="..." /></div>
+        <div class="col-12 col-lg-9  mt-0 ">{{entry.metin_en|linebreaks|urlize}}</div>
     {% endfor %}
 
 

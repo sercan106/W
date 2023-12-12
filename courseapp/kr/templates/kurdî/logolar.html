@@ -7,7 +7,7 @@
 
 
 
-    <div class="container  mb-4 border-bottom text-center"><h3>Hevkar û Hevpar</h3></div>
+    <div class="container  mb-4 border-bottom text-center"><h3>{% for entry in ayar %} {{entry.isbirlikleri_name_ku}} {% endfor %}</h3></div>
     <div class="container mb-5   text-center">
       <div class="row  ps-lg-5 pe-lg-5 ">
         {% for logo in logos %}

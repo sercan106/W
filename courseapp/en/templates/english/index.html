@@ -189,16 +189,19 @@
 
 
 
-<div class="col-2"></div>
-<div class="col-12 col-lg-8"> 
- <a href={% url 'logooo' %}><div class=" mt-5 mb-4 border-bottom text-dark "><h3>COLLABORATIONS</h3></div></a>
-
- <a href={% url 'logooo' %}>
- <div class="col-12 ">
-     <img class="img-fluid" src="{% for entry in ayar %}{{entry.isbirlikleri_foto_en.url}}{% endfor %}" alt="">
- </div>
-</a>
-</div>
+  <div class="col-2"></div>
+  <div class="col-12 col-lg-8"> 
+   
+   {% for entry in ayar %}
+   <a href="{% url 'logooo' %}"><div class=" mt-5 mb-4 border-bottom text-dark "><h3>{{entry.isbirlikleri_name_en}}</h3></div></a>
+  
+   <a href="{% url 'logooo' %}">
+   <div class="col-12 ">
+       <img class="img-fluid" src="{{entry.isbirlikleri_foto_ku.url}}" alt="">
+   </div>
+   {% endfor %}
+  </a>
+  </div>
   
   
 

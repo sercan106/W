@@ -220,12 +220,15 @@
 
  <div class="col-2"></div>
  <div class="col-12 col-lg-8"> 
-  <a href="/logo"><div class=" mt-5 mb-4 border-bottom text-dark "><h3>ORTAKLAR VE İŞBİRLİKLERİ</h3></div></a>
+  
+  {% for entry in ayar %}
+  <a href="/logo"><div class=" mt-5 mb-4 border-bottom text-dark "><h3>{{entry.isbirlikleri_name_tr}}</h3></div></a>
 
   <a href="/logo">
   <div class="col-12 ">
-      <img class="img-fluid" src="{% for entry in ayar %}{{entry.isbirlikleri_foto_tr.url}}{% endfor %}" alt="">
+      <img class="img-fluid" src="{{entry.isbirlikleri_foto_tr.url}}" alt="">
   </div>
+  {% endfor %}
 </a>
 </div>
 

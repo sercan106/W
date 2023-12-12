@@ -258,16 +258,22 @@ class Settings(models.Model):
     favicon=models.ImageField(upload_to='genel/favicon',blank=True)#zorunlu
     logo=models.ImageField(upload_to='genel/logo',blank=True)#zorunlu
     yazi_tipi =  models.ForeignKey(Yazi, on_delete=models.CASCADE)
+    
+    isbirlikleri_name_tr = models.CharField(max_length=100,blank=True)
     isbirlikleri_foto_tr=models.ImageField(upload_to='genel/isbirlikleri',blank=True)#zorunlu
+    
+    isbirlikleri_name_ku = models.CharField(max_length=100,blank=True)
     isbirlikleri_foto_ku=models.ImageField(upload_to='genel/isbirlikleri',blank=True)#zorunlu
-    isbirlikleri_foto_en=models.ImageField(upload_to='genel/isbirlikleri',blank=True)#zorunlu
+    
+    isbirlikleri_name_en = models.CharField(max_length=100,blank=True)
+    isbirlikleri_foto_en=models.ImageField(upload_to='genel/isbirlikleri',blank=True)
     def __str__(self):
         return self.name
 
 
 class Adres(models.Model):
     name=models.CharField( max_length=50)
-    foto=models.ImageField(upload_to='adres/foto',blank=True)#zorunlu
+    foto=models.ImageField(upload_to='adres/foto',blank=True)
     adres_tr = models.TextField(blank=True)
     adres_ku = models.TextField(blank=True)
     adres_en = models.TextField(blank=True)
